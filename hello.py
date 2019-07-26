@@ -12,8 +12,8 @@ def time_feed():
         while True:
             rsp = requests.get('https://api.binance.com/api/v1/ticker/price?symbol=BTCUSDT').json()
 
-            yield str(rsp)
-            time.sleep(1)
+            yield str(rsp["price"]+ ' - ')
+            time.sleep(3)
     return Response(generate())
 
 if __name__ == '__main__':
